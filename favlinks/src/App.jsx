@@ -1,10 +1,10 @@
+import LinkContainer from "./components/LinkContainer"
 
 function App() {
   return(
     <div>
-    <h1>hello</h1>
-  </div>
+      <LinkContainer />
+    </div>
   )
-}
- 
+} 
 export default App
