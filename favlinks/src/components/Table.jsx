@@ -1,31 +1,45 @@
-import Form from "./Form"
-
 function TableHeader(){
-    //Renders the head of our table
+    /* responsible for rendering the head of our table with the appropriate columns */
     return(
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>URL</th>
-                <th>Remove</th>
-            </tr>
-        </thead>
-    )
-}
-function TableBody(){
-    //Renders Data for our table
-    return(
-       <tbody>
-        
-       </tbody>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
     )
 }
 
+const TableBody = (props) => {
+    // boilerplate table body functional component
+    // we use Array.map to create table rows from LinkData passed via props
+    const rows = props.linkData.map((row, index) => {
+      return (
+        <tr key={index}>
+          <td>{row.name}</td>
+          <td>
+            <a href={row.URL}>{row.URL}</a>
+          </td>
+          <td>
+            <button onClick={() => props.removeLink(index)}>Delete</button>
+          </td>
+        </tr>
+      )
+    })
+  
+    return <tbody>{rows}</tbody>
+  }
+
+
 function Table(){
+    const handleRemove = (index) => {
+        console.log("Button Clicked")
+    }
     return(
         <table>
-           <TableHeader />
-           <TableBody />
+        <TableHeader/>
+        <TableBody linkData={[{name:"Project Github",URL:"https://github.com/ShoislaNYC/WebDevProject4"}]} removeLink = {handleRemove}/>
         </table>
     )
 }
