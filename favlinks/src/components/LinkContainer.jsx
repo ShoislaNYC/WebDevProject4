@@ -11,6 +11,7 @@ function LinkContainer(){
     const handleRemove = (index) => {
         setFavlinks(oldArr => {
             return oldArr.filter((value, i) => i !==index)
+            // Returns a copy of the array with a removed slot at the index
         })
         console.log("Removed!") 
       }
