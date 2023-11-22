@@ -1,6 +1,5 @@
 import { useState } from "react"
 
-
 const Form = (props)=>{
     const [name, setName] = useState("")
     const [URL, setURL] = useState("")
@@ -20,7 +19,7 @@ const Form = (props)=>{
 
             props.handleNewSubmit({name, URL})
         }}>
-                <label htmlFor="linkName">Link Name:</label>
+                <label  htmlFor="linkName">Link Name:</label>
                 <br />
                 <input 
                     type="text" 
