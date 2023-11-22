@@ -3,27 +3,33 @@ import Form from "./Form"
 import React, { useState } from "react"
 
 function LinkContainer(){ 
-
-    const handleChange = (e) => {
-        console.log(e.target.value)
-    }
+    const [favLinks, setFavlinks] = useState([])
     
+    function theIndex(){
+        return(index == favLinks.length-1)
+    }
     const handleRemove = (index) => {
-        console.log("Button Clicked")
+        setFavlinks(oldArr => {
+            return oldArr.filter((value, i) => i !==index)
+        })
+        console.log("Removed!") 
       }
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Submitted!");
+    const handleSubmit = (favLink) => {
+
+        setFavlinks([...favLinks,favLink])
+
+    //    let newArray = favlinks.push(favlinks)
+    //    setFavlinks(newArray)
       }
         
     return(
         <div>
             <h1>My Favorite Links</h1>
             <p>Add a new link with a name and URL to the Table!</p>
-            <Table data={[{name:"Project Github",URL:"https://github.com/ShoislaNYC/WebDevProject4"}]} remove = {handleRemove}/>
+            <Table data={favLinks} remove = {handleRemove}/>
             <h1>Add New</h1>
-            <Form handleChange= {handleChange} handleSubmit = {handleSubmit} />
+            <Form handleNewSubmit = {handleSubmit} />
         </div>
     )
 }

@@ -2,22 +2,30 @@ import { useState } from "react"
 
 
 const Form = (props)=>{
-    // const [Lname, setLName] = useState('');
-    // const [url, seturl] = useState('');
+    const [name, setName] = useState("")
+    const [URL, setURL] = useState("")
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const links = {Lname, url}
-    //     console.log(links)
-    // }
+    const handleNameChange = (e) => {
+        // console.log(e.target.value)
+        setName(e.target.value)
+    }
+    const handleURLChange = (e) => {
+        // console.log(e.target.value)
+        setURL(e.target.value)
+    }
     return(
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={(e)=>{
+            e.preventDefault()
+            console.log(name,URL)
+
+            props.handleNewSubmit({name, URL})
+        }}>
                 <label htmlFor="linkName">Link Name:</label>
                 <br />
                 <input 
                     type="text" 
                     // value={data}
-                    onChange={props.handleChange}
+                    onChange={handleNameChange}
                 />
                 <br/>
                 <label htmlFor="url">URL</label>
@@ -26,7 +34,7 @@ const Form = (props)=>{
                     type="text" 
                     id="url" 
                     // value={url}
-                    onChange={props.handleChange}
+                    onChange={handleURLChange}
                     />
                 <br />
                 <input 
