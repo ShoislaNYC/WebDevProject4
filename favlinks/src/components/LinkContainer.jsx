@@ -9,26 +9,21 @@ function LinkContainer(){
     }
     
     const handleRemove = (index) => {
-        /*
-                TODO - Create logic for setting the state to filter array and remove favLink at index
-            */
-    
+        console.log("Button Clicked")
       }
     
-    const handleSubmit = () => {
-        /*
-                TODO - Create logic to set state and add new favLink to favLinks array in state
-            */
-        // console.log(details);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Submitted!");
       }
         
     return(
         <div>
             <h1>My Favorite Links</h1>
             <p>Add a new link with a name and URL to the Table!</p>
-            <Table />
+            <Table data={[{name:"Project Github",URL:"https://github.com/ShoislaNYC/WebDevProject4"}]} remove = {handleRemove}/>
             <h1>Add New</h1>
-            <Form handleChange= {handleChange} />
+            <Form handleChange= {handleChange} handleSubmit = {handleSubmit} />
         </div>
     )
 }

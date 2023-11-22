@@ -32,14 +32,11 @@ const TableBody = (props) => {
   }
 
 
-function Table(){
-    const handleRemove = (index) => {
-        console.log("Button Clicked")
-    }
+function Table(props){
     return(
         <table>
         <TableHeader/>
-        <TableBody linkData={[{name:"Project Github",URL:"https://github.com/ShoislaNYC/WebDevProject4"}]} removeLink = {handleRemove}/>
+        <TableBody  linkData = {props.data} removeLink = {props.remove}/>
         </table>
     )
 }

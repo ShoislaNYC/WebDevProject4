@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const Form = ({handleChange})=>{
+const Form = (props)=>{
     // const [Lname, setLName] = useState('');
     // const [url, seturl] = useState('');
 
@@ -11,13 +11,13 @@ const Form = ({handleChange})=>{
     //     console.log(links)
     // }
     return(
-        <form /*onSubmit={handleSubmit}*/>
+        <form onSubmit={props.handleSubmit}>
                 <label htmlFor="linkName">Link Name:</label>
                 <br />
                 <input 
                     type="text" 
                     // value={data}
-                    onChange={handleChange}
+                    onChange={props.handleChange}
                 />
                 <br/>
                 <label htmlFor="url">URL</label>
@@ -26,7 +26,7 @@ const Form = ({handleChange})=>{
                     type="text" 
                     id="url" 
                     // value={url}
-                    onChange={handleChange}
+                    onChange={props.handleChange}
                     />
                 <br />
                 <input 
